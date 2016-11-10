@@ -1,0 +1,11 @@
+# Visual Studio Core
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Folder config file
+Desktop.ini
+
+# Release output dir.
+[Rr]elease/
