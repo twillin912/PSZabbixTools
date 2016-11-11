@@ -253,10 +253,10 @@ Task GenerateMarkdown -requiredVariables DefaultLocale, DocsRootDir, ModuleName,
             New-Item $DocsRootDir -ItemType Directory > $null
         }
 
-        New-MarkdownHelp -Module $ModuleName -Locale $DefaultLocale -OutputFolder $DocsRootDir\$DefaultLocale `
+        New-MarkdownHelp -Module $ModuleName -Locale $DefaultLocale -OutputFolder $DocsRootDir\Commands `
                          -WithModulePage -Force -Verbose:$VerbosePreference > $null
 
-        Update-MarkdownHelpModule -Path $DocsRootDir\$DefaultLocale -RefreshModulePage > $null
+        Update-MarkdownHelpModule -Path $DocsRootDir\Commands -RefreshModulePage > $null
     }
     finally {
         Remove-Module $ModuleName

@@ -28,7 +28,7 @@ function Get-ZabbixItemHistory {
 	.OUTPUTS
 		Custom.Zabbix.Item
 	.LINK
-		https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixItemHistory.md
+		https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItemHistory.md
 	.NOTES
 		Author: Trent Willingham
 		Check out my other scripts and projects @ https://github.com/twillin912

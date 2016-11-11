@@ -29,9 +29,6 @@ Gets the items from a Zabbix server.
 ### [Get-ZabbixItemHistory](Get-ZabbixItemHistory.md)
 Gets the item history from a Zabbix server.
 
-### [Get-ZabbixProxy](Get-ZabbixProxy.md)
-This function retrieves all proxy or a single one, depending if the -proxyName parameter is used
-
 ### [Get-ZabbixTemplate](Get-ZabbixTemplate.md)
 Gets the hosts from a Zabbix server.
 

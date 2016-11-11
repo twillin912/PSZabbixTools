@@ -1,6 +1,6 @@
 ---
 external help file: PoshZabbixTools-help.xml
-online version: https://github.com/twillin912/PoshZabbixTools
+online version: https://poshzabbixtools.readthedocs.io/en/latest/Commands/Disconnect-ZabbixServer.md
 schema: 2.0.0
 ---
 
@@ -44,5 +44,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://github.com/twillin912/PoshZabbixTools](https://github.com/twillin912/PoshZabbixTools)
+[https://poshzabbixtools.readthedocs.io/en/latest/Commands/Disconnect-ZabbixServer.md](https://poshzabbixtools.readthedocs.io/en/latest/Commands/Disconnect-ZabbixServer.md)
 

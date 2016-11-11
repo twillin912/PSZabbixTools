@@ -1,6 +1,6 @@
 ---
 external help file: PoshZabbixTools-help.xml
-online version: https://github.com/twillin912/PoshZabbixTools
+online version: https://poshzabbixtools.readthedocs.io/en/latest/Commands/Connect-ZabbixServer.md
 schema: 2.0.0
 ---
 
@@ -13,12 +13,12 @@ Sends a login request to a Zabbix server API service.
 
 ### Uri
 ```
-Connect-ZabbixServer -Uri <String> [-Credential] <PSCredential> [<CommonParameters>]
+Connect-ZabbixServer -Uri <String> -Credential <PSCredential> [<CommonParameters>]
 ```
 
 ### Server
 ```
-Connect-ZabbixServer -Server <String> [-Secure] [-Credential] <PSCredential> [<CommonParameters>]
+Connect-ZabbixServer -Server <String> [-Secure] -Credential <PSCredential> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -86,7 +86,7 @@ Type: SwitchParameter
 Parameter Sets: Server
 Aliases: 
 
-Required: True
+Required: False
 Position: Named
 Default value: False
 Accept pipeline input: False
@@ -105,7 +105,7 @@ Parameter Sets: (All)
 Aliases: 
 
 Required: True
-Position: 2
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -126,5 +126,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://github.com/twillin912/PoshZabbixTools](https://github.com/twillin912/PoshZabbixTools)
+[https://poshzabbixtools.readthedocs.io/en/latest/Commands/Connect-ZabbixServer.md](https://poshzabbixtools.readthedocs.io/en/latest/Commands/Connect-ZabbixServer.md)
 

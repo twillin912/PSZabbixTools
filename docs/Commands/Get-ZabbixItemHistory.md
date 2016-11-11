@@ -1,6 +1,6 @@
 ---
 external help file: PoshZabbixTools-help.xml
-online version: https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixItemHistory.md
+online version: https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItemHistory.md
 schema: 2.0.0
 ---
 
@@ -12,7 +12,7 @@ Gets the item history from a Zabbix server.
 ## SYNTAX
 
 ```
-Get-ZabbixItemHistory [[-ItemId] <Int32[]>] [[-ValueType] <Int32>] [[-Last] <Int32>]
+Get-ZabbixItemHistory [[-ItemId] <Int32[]>] [[-ValueType] <Int32>] [[-Last] <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -107,6 +107,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -119,5 +122,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixItemHistory.md](https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixItemHistory.md)
+[https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItemHistory.md](https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItemHistory.md)
 

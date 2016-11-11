@@ -1,61 +1,69 @@
 ---
 external help file: PoshZabbixTools-help.xml
-online version: https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixTemplate.md
+online version: https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItem.md
 schema: 2.0.0
 ---
 
-# Get-ZabbixTemplate
+# Get-ZabbixItem
 
 ## SYNOPSIS
-Gets the hosts from a Zabbix server.
+Gets the items from a Zabbix server.
 
 ## SYNTAX
 
 ```
-Get-ZabbixTemplate [[-TemplateId] <Int32[]>] [[-GroupId] <Int32[]>] [[-Name] <String>] [-Short]
+Get-ZabbixItem [[-ItemId] <Int32[]>] [[-HostId] <Int32[]>] [[-Name] <String>] [[-Key] <String>] [-Short]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The Get-ZabbixHost cmdlet gets the hosts from a Zabbix server.
+The Get-ZabbixItem cmdlet gets the items from a Zabbix server.
 
-Without parameters, this cmdlet gets all hosts on the server. 
-You can also specify a particular host by host id, group id, or host name.
+Without parameters, this cmdlet gets all items on the server. 
+You can also specify a particular item\[s\] by item id, host id, item name, or item key.
 
 ## EXAMPLES
 
 ### -------------------------- EXAMPLE 1 --------------------------
 ```
-Get-ZabbixTemplate
+Get-ZabbixItem
 ```
 
-Get all templates on the server.
+Get all items on the server.
 
 ### -------------------------- EXAMPLE 2 --------------------------
 ```
-Get-ZabbixTemplate -TemplateId 10000,10001
+Get-ZabbixItem -ItemId 100,101
 ```
 
-Get data for templates with id 10000 or 10001
+Get data for items with id 100 or 101
 
 ### -------------------------- EXAMPLE 3 --------------------------
 ```
-Get-ZabbixTemplate -Name 'Template01'
+Get-ZabbixHost -Name MyServer | Get-ZabbixItem
 ```
 
-Get template data where the template name matches the input value.
+Get item data for all items on the host 'MyServer'
 
 ### -------------------------- EXAMPLE 4 --------------------------
 ```
-Get-ZabbixHostGroup -Name MyGroup | Get-ZabbixTemplate
+Get-ZabbixItem -Name "Free Space*"
 ```
 
-Get template data for all templates in the group 'Group01'
+Get item data where the name value matches the input string
+
+### -------------------------- EXAMPLE 5 --------------------------
+```
+Get-ZabbixItem -Key "vfs.fs.size*"
+```
+
+Get item data where the key value matches the input string
 
 ## PARAMETERS
 
-### -TemplateId
-{{Fill TemplateId Description}}
+### -ItemId
+Specifies one or more items by item id.
+You can type multiple item ids (separated by commas).
 
 ```yaml
 Type: Int32[]
@@ -69,9 +77,9 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -GroupId
-Specifies one or more hosts by group id.
-You can type multiple group ids (separated by commas).
+### -HostId
+Specifies one or more items by host id.
+You can type multiple host ids (separated by commas).
 
 ```yaml
 Type: Int32[]
@@ -86,7 +94,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-Specifies one or more hosts by host name. 
+Specifies one or more items by item name. 
 You can use wildcard characters.
 
 ```yaml
@@ -101,8 +109,24 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Key
+Specifies one or more items by item key. 
+You can use wildcard characters.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Short
-Indicates that only the HostId value it returned. 
+Indicates that only the ItemId and ValueType values are returned. 
 This can be useful when piping the output to another command.
 
 ```yaml
@@ -124,7 +148,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Custom.Zabbix.Template
+### Custom.Zabbix.Item
 
 ## NOTES
 Author: Trent Willingham
@@ -132,5 +156,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixTemplate.md](https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixTemplate.md)
+[https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItem.md](https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItem.md)
 

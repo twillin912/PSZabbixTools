@@ -1,10 +1,10 @@
 ---
 external help file: PoshZabbixTools-help.xml
-online version: https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixHost.md
+online version: https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixTemplate.md
 schema: 2.0.0
 ---
 
-# Get-ZabbixHost
+# Get-ZabbixTemplate
 
 ## SYNOPSIS
 Gets the hosts from a Zabbix server.
@@ -12,8 +12,8 @@ Gets the hosts from a Zabbix server.
 ## SYNTAX
 
 ```
-Get-ZabbixHost [[-HostId] <Int32[]>] [[-GroupId] <Int32[]>] [[-TemplateId] <Int32[]>] [[-Name] <String>]
- [-Short] [<CommonParameters>]
+Get-ZabbixTemplate [[-TemplateId] <Int32[]>] [[-GroupId] <Int32[]>] [[-Name] <String>] [-Short]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -26,44 +26,36 @@ You can also specify a particular host by host id, group id, or host name.
 
 ### -------------------------- EXAMPLE 1 --------------------------
 ```
-Get-ZabbixHost
+Get-ZabbixTemplate
 ```
 
-Get all hosts on the server.
+Get all templates on the server.
 
 ### -------------------------- EXAMPLE 2 --------------------------
 ```
-Get-ZabbixHost -HostName 'Server01'
+Get-ZabbixTemplate -TemplateId 10000,10001
 ```
 
-In this example we are searching for any hosts where the 'host' field match the search input.
+Get data for templates with id 10000 or 10001
 
 ### -------------------------- EXAMPLE 3 --------------------------
 ```
-Get-ZabbixHost -HostId 10000,10001,10002
+Get-ZabbixTemplate -Name 'Template01'
 ```
 
-Retrieve host(s) by Id
+Get template data where the template name matches the input value.
 
 ### -------------------------- EXAMPLE 4 --------------------------
 ```
-Get-ZabbixHostGroup -Name MyGroup | Get-ZabbixHost
+Get-ZabbixHostGroup -Name MyGroup | Get-ZabbixTemplate
 ```
 
-Get all hosts the belong to the host group 'MyGroup'
-
-### -------------------------- EXAMPLE 5 --------------------------
-```
-Get-ZabbixTemplate -Name Template01 | Get-ZabbixHost
-```
-
-Get all hosts the have the template 'Template01' applied
+Get template data for all templates in the group 'Group01'
 
 ## PARAMETERS
 
-### -HostId
-Specifies one or more hosts by host id.
-You can type multiple host ids (separated by commas).
+### -TemplateId
+{{Fill TemplateId Description}}
 
 ```yaml
 Type: Int32[]
@@ -93,22 +85,6 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -TemplateId
-Specifies one or more hosts by template id.
-You can type multiple template ids (separated by commas).
-
-```yaml
-Type: Int32[]
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
 ### -Name
 Specifies one or more hosts by host name. 
 You can use wildcard characters.
@@ -119,7 +95,7 @@ Parameter Sets: (All)
 Aliases: 
 
 Required: False
-Position: 4
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -148,7 +124,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Custom.Zabbix.Host
+### Custom.Zabbix.Template
 
 ## NOTES
 Author: Trent Willingham
@@ -156,5 +132,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixHost.md](https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixHost.md)
+[https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixTemplate.md](https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixTemplate.md)
 
