@@ -40,13 +40,13 @@ function Connect-ZabbixServer {
 			ParameterSetName='Server')]
 		[string] $Server,
 
-		[Parameter(Mandatory=$True,
-			ParameterSetName='Server')]
+		[Parameter(ParameterSetName='Server')]
 		[switch] $Secure,
 
-		[Parameter(Mandatory=$True,
-			Position=1)]
-		[PSCredential] [System.Management.Automation.Credential()] $Credential
+		[Parameter(Mandatory=$True)]
+		[System.Management.Automation.PSCredential]
+		[System.Management.Automation.Credential()]
+		$Credential
 	)
 
 	if ( $Global:ZabbixSession ) {
