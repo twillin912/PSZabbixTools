@@ -2,7 +2,7 @@
 Module Name: PoshZabbixTools
 Module Guid: da81018d-6b2b-4f9e-be32-4601bc359959
 Download Help Link: {{Please enter FwLink manually}}
-Help Version: {{Please enter version of help manually (X.X.X.X) format}}
+Help Version: 1.0.0.3
 Locale: en-US
 ---
 

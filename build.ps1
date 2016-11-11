@@ -1,4 +1,10 @@
-#Requires -Modules psake
+#Requires -Modules buildhelpers,psake
+[CmdletBinding()]
+Param (
+    [string] $Task = 'Build'
+)
 
-# Builds the module by invoking psake on the build.psake.ps1 script.
-Invoke-PSake $PSScriptRoot\build.psake.ps1 -taskList Build
+Set-BuildEnvironment -Path "$PSScriptRoot" -Verbose:$VerbosePreference
+
+Write-Verbose -Message "Calling Invoke-psake with build file '$env:BHProjectPath\build\build.psake.ps1'"
+Invoke-psake -buildFile "$env:BHProjectPath\build\build.psake.ps1" -taskList $Task
