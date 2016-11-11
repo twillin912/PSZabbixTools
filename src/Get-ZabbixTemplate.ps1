@@ -29,7 +29,7 @@ function Get-ZabbixTemplate {
 	.OUTPUTS
 		Custom.Zabbix.Template
 	.LINK
-		https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixTemplate.md
+		https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixTemplate
 	.NOTES
 		Author: Trent Willingham
 		Check out my other scripts and projects @ https://github.com/twillin912

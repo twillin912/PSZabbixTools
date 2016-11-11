@@ -18,7 +18,7 @@ function Get-ZabbixHostGroup {
 	.OUTPUTS
 		Custom.Zabbix.HostGroup
 	.LINK
-		https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHostGroup.md
+		https://github.com/twillin912/PoshZabbixTools/master/docs/en-US/Get-ZabbixHostGroup.md
 	.NOTES
 		Author: Trent Willingham
 		Check out my other scripts and projects @ https://github.com/twillin912
