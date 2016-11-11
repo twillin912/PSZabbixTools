@@ -115,6 +115,10 @@
                         <Label>ValueType</Label>
                         <Width>10</Width>
                     </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>LastValue</Label>
+                        <Width>15</Width>
+                    </TableColumnHeader>
                 </TableHeaders>
                 <TableRowEntries>
                     <TableRowEntry>
@@ -130,6 +134,9 @@
                             </TableColumnItem>
                             <TableColumnItem>
                                 <PropertyName>value_type</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>lastvalue</PropertyName>
                             </TableColumnItem>
                         </TableColumnItems>
                     </TableRowEntry>
