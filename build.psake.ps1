@@ -278,7 +278,7 @@ Task GenerateHelpFiles -requiredVariables DocsRootDir, ModuleName, ModuleOutDir,
 
     # Generate the module's primary MAML help file.
     foreach ($locale in $helpLocales) {
-        New-ExternalHelp -Path $DocsRootDir\$locale -OutputPath $ModuleOutDir\$locale -Force `
+        New-ExternalHelp -Path $DocsRootDir\Commands -OutputPath $ModuleOutDir\$locale -Force `
                          -ErrorAction SilentlyContinue -Verbose:$VerbosePreference > $null
     }
 }
@@ -306,7 +306,7 @@ Task CoreBuildUpdatableHelp -requiredVariables DocsRootDir, ModuleName, Updatabl
     # Generate updatable help files.  Note: this will currently update the version number in the module's MD
     # file in the metadata.
     foreach ($locale in $helpLocales) {
-        New-ExternalHelpCab -CabFilesFolder $ModuleOutDir\$locale -LandingPagePath $DocsRootDir\$locale\$ModuleName.md `
+        New-ExternalHelpCab -CabFilesFolder $ModuleOutDir\$locale -LandingPagePath $DocsRootDir\Command\$ModuleName.md `
                             -OutputFolder $UpdatableHelpOutDir -Verbose:$VerbosePreference > $null
     }
 }

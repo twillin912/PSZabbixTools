@@ -34,7 +34,7 @@ function Get-ZabbixHost {
 	.OUTPUTS
 		Custom.Zabbix.Host
 	.LINK
-		https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHost.md
+		https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHost
 	.NOTES
 		Author: Trent Willingham
 		Check out my other scripts and projects @ https://github.com/twillin912
