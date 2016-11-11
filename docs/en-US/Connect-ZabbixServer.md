@@ -28,8 +28,11 @@ The Connect-ZabbixServer cmdlet retreives the Api authentication key for the ses
 
 ### -------------------------- EXAMPLE 1 --------------------------
 ```
-Connect-ZabbixServer 'http://myserver/zabbix/api_jsonrpc.php'
+Connect-ZabbixServer -Server 'myserver' -Credential 'myuser'
 ```
+
+Connect to the Zabbix server 'myserver' with the username 'myuser'. 
+The connection URI will be 'http://myserver/zabbix/api_jsonrpc.php'.
 
 ### -------------------------- EXAMPLE 2 --------------------------
 ```
@@ -47,9 +50,6 @@ Connect-ZabbixServer -Uri 'http://myserver/zabbix/api_jsonrpc.php' -Credential (
 Specifies the Uniform Resource Identifier (URI) of the Internet resource to which the web request is sent.
 This parameter supports HTTP and HTTPS values.
 
-This parameter is required.
-The parameter name (-Uri) is optional.
-
 ```yaml
 Type: String
 Parameter Sets: Uri
@@ -63,7 +63,8 @@ Accept wildcard characters: False
 ```
 
 ### -Server
-{{Fill Server Description}}
+Specifies the name of the Zabbix server to utilize in contrusting the connection URI. 
+If not using the default Zabbix configuration, please specify the full URI using the -Uri paramter.
 
 ```yaml
 Type: String
@@ -78,7 +79,9 @@ Accept wildcard characters: False
 ```
 
 ### -Secure
-Specifies using HTTPS when the -Server parameter is specified.```yaml
+Specifies using HTTPS when the -Server parameter is specified.
+
+```yaml
 Type: SwitchParameter
 Parameter Sets: Server
 Aliases: 

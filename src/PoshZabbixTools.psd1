@@ -63,13 +63,15 @@ Description = 'A set of PowerShell tools to interact with the Zabbix API.'
 # TypesToProcess = @()
 
 # Format files (.ps1xml) to be loaded when importing this module
-FormatsToProcess = @()
+FormatsToProcess = @('PoshZabbixTools.Format.ps1xml')
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Connect-ZabbixServer','Disconnect-ZabbixServer')
+FunctionsToExport = @('Connect-ZabbixServer','Disconnect-ZabbixServer','Get-ZabbixHost',
+                    'Get-ZabbixHostGroup','Get-ZabbixItem','Get-ZabbixItemHistory',
+                    'Get-ZabbixProxy','Get-ZabbixTemplate')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

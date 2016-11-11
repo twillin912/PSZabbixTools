@@ -1,12 +1,13 @@
 ---
 external help file: PoshZabbixTools-help.xml
-online version: https://github.com/twillin912/PSZabbixApi
+online version: https://github.com/twillin912/PoshZabbixTools
 schema: 2.0.0
 ---
 
 # Disconnect-ZabbixServer
 
 ## SYNOPSIS
+Sends a logout request to a Zabbix server API service.
 
 ## SYNTAX
 
@@ -15,16 +16,14 @@ Disconnect-ZabbixServer [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+The Disconnect-ZabbixServer function sends a logout request to the Zabbix server API and removes the local session information.
 
 ## EXAMPLES
 
-### Example 1
+### -------------------------- EXAMPLE 1 --------------------------
 ```
-PS C:\> {{ Add example code here }}
+Disconnect-ZabbixServer
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
@@ -45,5 +44,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://github.com/twillin912/PSZabbixApi](https://github.com/twillin912/PSZabbixApi)
+[https://github.com/twillin912/PoshZabbixTools](https://github.com/twillin912/PoshZabbixTools)
 
