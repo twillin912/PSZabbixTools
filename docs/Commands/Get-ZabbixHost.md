@@ -1,6 +1,6 @@
 ---
 external help file: PoshZabbixTools-help.xml
-online version: https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHost.md
+online version: https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHost
 schema: 2.0.0
 ---
 
@@ -156,5 +156,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHost.md](https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHost.md)
+[https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHost](https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHost)
 
