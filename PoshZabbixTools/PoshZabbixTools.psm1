@@ -2,7 +2,7 @@
 $Public  = Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -Recurse -ErrorAction SilentlyContinue
 $Private = Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -Recurse -ErrorAction SilentlyContinue
 If ( $Public ) {$AllFunctions += $Public}
-If ( $Private ) {$AllFunctions += $Public}
+If ( $Private ) {$AllFunctions += $Private}
 
 #Dot source the files
 foreach ( $Import in $AllFunctions ) {

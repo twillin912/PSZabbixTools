@@ -1,5 +1,9 @@
 # PoshZabbixTools - Release Notes
 
+## 0.1.3 (2016-11-11)
+  * Bug Fixes
+    * Fixed a typo in the root module file.
+
 ## 0.1.2 (2016-11-11)
   * Bug Fixes
     * Disable module catalog generation
