@@ -1,4 +1,4 @@
-<!--[![Build status](https://ci.appveyor.com/api/projects/status/aovgv1lycoj6ius8/branch/master?svg=true)](https://ci.appveyor.com/project/gerane/vscodeextensions/branch/master)-->
+[![Build status](https://ci.appveyor.com/api/projects/status/gvrr83aty09sfjcl?svg=true)](https://ci.appveyor.com/project/twillin912/poshzabbixtools)
 [![Documentation Status](https://readthedocs.org/projects/poshzabbixtools/badge/?version=latest)](http://poshzabbixtools.readthedocs.io/en/latest/?badge=latest)
 
 # PoshZabbixTools Module
