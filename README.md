@@ -7,7 +7,7 @@ This module lets you manage your Zabbix monitoring environment.
 
 ## Installation
 
-Install from PSGallery. (Soon)
+Install from PSGallery
 
 ```powershell
 PS> Install-Module -Name PoshZabbixTools
