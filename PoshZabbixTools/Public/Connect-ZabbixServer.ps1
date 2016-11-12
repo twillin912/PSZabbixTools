@@ -49,7 +49,7 @@ function Connect-ZabbixServer {
         $Credential
     )
 
-    if ( $Global:ZabbixSession ) {
+    if ($env:ZabbixUri) {
         Write-Warning -Message "$($MyInvocation.MyCommand.Name): Zabbix session information already exists. Disconnect any previous session before starting a new session."
         break
     }
@@ -71,7 +71,7 @@ function Connect-ZabbixServer {
     $JsonRequest = ZabbixJsonObject -RequestType 'user.login' -Parameters $Params
 
     try {
-        Write-Verbose -Message "Submitting login request to $Uri"
+        Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Submitting login request to $Uri"
         $JsonResponse = Invoke-RestMethod -Uri $Uri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
     }
     catch {
@@ -86,7 +86,8 @@ function Connect-ZabbixServer {
     }
 
     Write-Verbose "$($MyInvocation.MyCommand.Name): Connection to Zabbix is successfull"
-    $Global:ZabbixSession = New-Object -Type PSObject
-    $ZabbixSession | Add-Member -MemberType NoteProperty -Name "Uri" -Value $Uri
-    $ZabbixSession | Add-Member -MemberType NoteProperty -Name "AuthId" -Value $JsonResponse.Result
+    [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
+    $env:ZabbixUri = $Uri
+    [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
+    $env:ZabbixAuth = $JsonResponse.Result
 }

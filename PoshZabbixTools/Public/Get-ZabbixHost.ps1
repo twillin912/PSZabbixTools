@@ -60,7 +60,7 @@ function Get-ZabbixHost {
     )
 
     Begin {
-        if ( -not $Global:ZabbixSession ) {
+        if (!($env:ZabbixUri)) {
             Write-Warning -Message "$($MyInvocation.MyCommand.Name): No session information found. Use 'Connect-ZabbixServer' to login and create your Api session."
             break;
         }
@@ -103,10 +103,10 @@ function Get-ZabbixHost {
         }
 
         $JsonRequest = ZabbixJsonObject -RequestType 'host.get' -Parameters $Params
-        Write-Verbose -Message "Sending JSON request object`n$($JsonRequest -Replace $ZabbixSession.AuthId, 'XXXXXX')"
+        Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Sending JSON request object`n$($JsonRequest -Replace $env:ZabbixAuth, 'XXXXXX')"
 
         try {
-            $JsonResponse = Invoke-RestMethod -Uri $($ZabbixSession.Uri) -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
+            $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
             Write-Verbose -Message "$JsonResponse"
         }
         catch {

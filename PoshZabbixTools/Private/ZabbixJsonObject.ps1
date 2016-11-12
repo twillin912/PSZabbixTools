@@ -14,7 +14,7 @@ function ZabbixJsonObject {
     $RequestObject | Add-Member -MemberType NoteProperty -Name 'method' -Value $RequestType
     $RequestObject | Add-Member -MemberType NoteProperty -Name 'params' -Value $Parameters
     if ($RequestType -notmatch 'user.login') {
-        $RequestObject | Add-Member -MemberType NoteProperty -Name 'auth' -Value $ZabbixSession.AuthId
+        $RequestObject | Add-Member -MemberType NoteProperty -Name 'auth' -Value $env:ZabbixAuth
     }
     $RequestObject | Add-Member -MemberType NoteProperty -Name 'id' -Value '1'
 
