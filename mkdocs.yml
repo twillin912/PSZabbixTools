@@ -1,0 +1,11 @@
+site_name: PoshZabbixTools Documentation
+pages:
+- Home: index.md
+- Functions:
+  - Connect-ZabbixServer: en-US/Connect-ZabbixServer.md
+  - Disconnect-ZabbixServer: en-US/Disconnect-ZabbixServer.md
+  - Get-ZabbixHost: en-US/Get-ZabbixHost.md
+  - Get-ZabbixHostGroup: en-US/Get-ZabbixHostGroup.md
+  - Get-ZabbixItem: en-US/Get-ZabbixItem.md
+  - Get-ZabbixItemHistory: en-US/Get-ZabbixItemHistory.md
+  - Get-ZabbixTemplate: en-US/Get-ZabbixTemplate.md

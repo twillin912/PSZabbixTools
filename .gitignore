@@ -9,3 +9,7 @@ Desktop.ini
 
 # Release output dir.
 [Rr]elease/
+
+# Automation Logs
+[Rr]obocopy.log
+TestsResults.xml

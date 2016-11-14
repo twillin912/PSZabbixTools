@@ -12,7 +12,7 @@
 RootModule = 'PoshZabbixTools.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.1.3'
+ModuleVersion = '0.1.4'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -100,7 +100,7 @@ PrivateData = @{
         Tags = 'Zabbix','API'
 
         # A URL to the license for this module.
-        LicenseUri = 'https://github.com/twillin912/PoshZabbixTools/raw/master/LICENSE'
+        LicenseUri = 'https://github.com/twillin912/PoshZabbixTools/blob/master/LICENSE'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/twillin912/PoshZabbixTools/'
@@ -109,7 +109,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'https://github.com/twillin912/PoshZabbixTools/raw/master/ReleaseNotes.md'
+        ReleaseNotes = 'https://github.com/twillin912/PoshZabbixTools/blob/master/ReleaseNotes.md'
 
         # External dependent modules of this module
         # ExternalModuleDependencies = ''
@@ -119,7 +119,7 @@ PrivateData = @{
  } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
-HelpInfoURI = 'https://github.com/twillin912/PoshZabbixTools/raw/develop/help/PoshZabbixTools_da81018d-6b2b-4f9e-be32-4601bc359959_HelpInfo.xml'
+# HelpInfoURI = ''
 
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''

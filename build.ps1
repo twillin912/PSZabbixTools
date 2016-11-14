@@ -1,10 +1,29 @@
-#Requires -Modules buildhelpers,psake
+<#
+#>
 [CmdletBinding()]
-Param (
+
+Param
+(
     [string] $Task = 'Build'
 )
 
-Set-BuildEnvironment -Path "$PSScriptRoot" -Verbose:$VerbosePreference
+$RequiredModules = @('BuildHelpers','Psake','Pester','PlatyPS','PSScriptAnalyzer')
 
-Write-Verbose -Message "Calling Invoke-psake with build file '$env:BHProjectPath\build\build.psake.ps1'"
-Invoke-psake -buildFile "$env:BHProjectPath\build\build.psake.ps1" -taskList $Task
+Write-Verbose -Message "Set package provider and verify required packages are installed."
+    Get-PackageProvider -Name NuGet -ForceBootstrap | Out-Null
+
+foreach ( $Module in $RequiredModules )
+{
+    if ( !( Get-Module -ListAvailable -Name $Module ) )
+    {
+        Install-Module -Name $Module -Scope CurrentUser -Force | Out-Null
+    }
+}
+
+Write-Verbose -Message "Set build environment using the BuildHelpers module."
+    Set-BuildEnvironment
+
+Write-Verbose -Message 'Invoking psake build script.'
+    Invoke-PSake -buildFile .\build.psake.ps1 -taskList $Task -nologo
+
+exit ( [int]( -not $psake.build_success ) )

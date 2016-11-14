@@ -1,18 +1,18 @@
-#Get public and private function definition files.
-$Public  = Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -Recurse -ErrorAction SilentlyContinue
-$Private = Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -Recurse -ErrorAction SilentlyContinue
-If ( $Public ) {$AllFunctions += $Public}
-If ( $Private ) {$AllFunctions += $Private}
+Write-Verbose -Message 'Importing functions'
+foreach ( $Folder in @('Private','Public') )
+{
+    $Root = Join-Path -Path $PSScriptRoot -ChildPath $Folder
+    if ( Test-Path -Path $Root )
+    {
+        Write-Verbose -Message "Processing folder $Root"
+        $Files = Get-ChildItem -Path $Root -Filter *.ps1 -Recurse -File
 
-#Dot source the files
-foreach ( $Import in $AllFunctions ) {
-    try {
-        . $Import.FullName
-    }
-    Catch {
-        Write-Error -Message "Failed to import function $($Import.FullName): $_"
+        foreach ( $File in $Files )
+        {
+            . $File.FullName
+        }
     }
 }
 
-# Export only the functions in the Public folder.
-Export-ModuleMember -Function $Public.Basename
+#Export only the functions in the Public folder.
+Export-ModuleMember -Function ( Get-ChildItem -Path "$PSScriptRoot\Public*.ps1").Basename

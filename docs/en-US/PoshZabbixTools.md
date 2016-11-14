@@ -2,7 +2,7 @@
 Module Name: PoshZabbixTools
 Module Guid: da81018d-6b2b-4f9e-be32-4601bc359959
 Download Help Link: {{Please enter FwLink manually}}
-Help Version: 1.0.0.3
+Help Version: {{Please enter version of help manually (X.X.X.X) format}}
 Locale: en-US
 ---
 
@@ -12,23 +12,23 @@ Locale: en-US
 
 ## PoshZabbixTools Cmdlets
 ### [Connect-ZabbixServer](Connect-ZabbixServer.md)
-Sends a login request to a Zabbix server API service.
+{{Manually Enter Connect-ZabbixServer Description Here}}
 
 ### [Disconnect-ZabbixServer](Disconnect-ZabbixServer.md)
-Sends a logout request to a Zabbix server API service.
+{{Manually Enter Disconnect-ZabbixServer Description Here}}
 
 ### [Get-ZabbixHost](Get-ZabbixHost.md)
-Gets the hosts from a Zabbix server.
+{{Manually Enter Get-ZabbixHost Description Here}}
 
 ### [Get-ZabbixHostGroup](Get-ZabbixHostGroup.md)
-Gets the host groups from a Zabbix server.
+{{Manually Enter Get-ZabbixHostGroup Description Here}}
 
 ### [Get-ZabbixItem](Get-ZabbixItem.md)
-Gets the items from a Zabbix server.
+{{Manually Enter Get-ZabbixItem Description Here}}
 
 ### [Get-ZabbixItemHistory](Get-ZabbixItemHistory.md)
-Gets the item history from a Zabbix server.
+{{Manually Enter Get-ZabbixItemHistory Description Here}}
 
 ### [Get-ZabbixTemplate](Get-ZabbixTemplate.md)
-Gets the hosts from a Zabbix server.
+{{Manually Enter Get-ZabbixTemplate Description Here}}
 

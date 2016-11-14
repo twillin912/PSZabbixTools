@@ -4,7 +4,7 @@ $SuppressImportModule = $true
 
 Describe 'File Formatting' {
 
-    $Textfiles = Get-ChildItem -Path $env:BHPSModulePath -Include '*.ps1', '*.psm1', '*.psd1' -Recurse
+    $Textfiles = Get-ChildItem -Path $ProjectRoot -Include '*.ps1', '*.psm1', '*.psd1' -Recurse
 
     It "Doesn't use Unicode encoding" {
         $FileCount = 0
