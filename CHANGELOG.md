@@ -1,8 +1,9 @@
 # PoshZabbixTools Release History
 
-## 0.1.4 (2016-11-14)
+## 0.1.4 (2017-01-26)
   - Improvements
-    - Updates project structure to follow plaster structure, with modifications for using PSDeploy.
+    - Updates project structure to follow plaster structure
+    - Removed global variable usage
   - Bug Fixes
 
 ## 0.1.3 (2016-11-11)

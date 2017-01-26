@@ -2,4 +2,5 @@
 
   - Improvements
     - Updates project structure to follow plaster structure, with modifications for using PSDeploy.
+    - Removed global variable usage
   - Bug Fixes
