@@ -3,8 +3,8 @@ $SuppressImportModule = $false
 . $PSScriptRoot\Shared.ps1
 
 Describe 'Module root' {
-    $PublicFunctionFiles = (Get-ChildItem -Path "$env:BHPSModulePath\Public\*.ps1" -Recurse -ErrorAction SilentlyContinue).BaseName
-    $ModuleFunctions = (Get-Command -Module $env:BHProjectName).Name
+    $PublicFunctionFiles = (Get-ChildItem -Path "$ModuleRoot\Public\*.ps1" -Recurse -ErrorAction SilentlyContinue).BaseName
+    $ModuleFunctions = (Get-Command -Module $ModuleName).Name
 
     Context 'Validation' {
 

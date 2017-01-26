@@ -9,7 +9,7 @@
 #---------------------------------#
 
 # version format
-version: 0.0.0.{build}
+version: 0.1.4.{build}
 
 #---------------------------------#
 #    environment configuration    #
@@ -27,10 +27,8 @@ image: WMF 5
 # init:
 #   - ps:
 
-install:
-  - ps: Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null
-  - ps: Install-Module Pester, Psake, PlatyPS, PSDeploy, PSScriptAnalyzer, BuildHelpers -Repository PSGallery -Force | Out-Null
-  - ps: Import-Module Pester, Psake, PlatyPS, PSDeploy, PSScriptAnalyzer, BuildHelpers -Force | Out-Null
+# install:
+#  - ps:
 
 #---------------------------------#
 #       build configuration       #
@@ -43,15 +41,7 @@ build: off
 #---------------------------------#
 
 test_script:
-  - ps: .\build.ps1 -Task Publish
-      # $testResultsFile = ".\TestsResults.xml"
-      # $tempModulePath = (Resolve-Path (join-path $pwd '..')).ProviderPath
-      # $env:PSModulePath = "$env:PSModulePath;$tempModulePath"
-      # $res = Invoke-Pester -OutputFormat NUnitXml -OutputFile $testResultsFile -PassThru
-      # (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path $testResultsFile))
-      # if ($res.FailedCount -gt 0) {
-      #     throw "$($res.FailedCount) tests failed."
-      # }
+  - ps: .\build.ps1 Publish
 
 #---------------------------------#
 #     deployment configuration    #
@@ -59,8 +49,6 @@ test_script:
 
 # scripts to run before deployment
 deploy: off
-
-
 
 #---------------------------------#
 #        global handlers          #
@@ -74,6 +62,12 @@ on_failure:
 
 # after build failure or success
 on_finish:
+  - ps: |
+      # Publish the contents of the Release folder
+      Add-Type -AssemblyName System.IO.Compression.FileSystem
+      $ZipFile = "$pwd\PoshZabbixTools.zip"
+      [System.IO.Compression.ZipFile]::CreateFromDirectory("$pwd\Release", $ZipFile)
+      Push-AppveyorArtifact $ZipFile
 
 #---------------------------------#
 #         notifications           #

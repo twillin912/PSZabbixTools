@@ -2,7 +2,9 @@
 $SuppressImportModule = $true
 . $PSScriptRoot\Shared.ps1
 
-$ReleaseNotesPath = Join-Path -Path $env:BHProjectPath -Child "ReleaseNotes.md"
+$AppVeyorConfig = Join-Path -Path $env:BHProjectPath -Child "appveyor.yml"
+$ChangeLog = Join-Path -Path $env:BHProjectPath -Child "CHANGELOG.md"
+$ReleaseNotes = Join-Path -Path $env:BHProjectPath -Child "ReleaseNotes.md"
 
 Describe 'Module manifest' {
     Context 'Validation' {
@@ -16,11 +18,11 @@ Describe 'Module manifest' {
         }
 
         It "has a valid name in the manifest" {
-            $script:Manifest.Name | Should Be $env:BHProjectName
+            $script:Manifest.Name | Should Be $ModuleName
         }
 
         It 'has a valid root module' {
-            $script:Manifest.RootModule | Should Be "$env:BHProjectName.psm1"
+            $script:Manifest.RootModule | Should Be "$ModuleName.psm1"
         }
 
         It "has a valid version in the manifest" {
@@ -54,16 +56,49 @@ Describe 'Module manifest' {
 
     Context 'Versioning' {
 
+        $script:AppVeyorVersion = $null
+        It "has a valid version in the appveyor config" {
+            foreach ($line in (Get-Content $AppVeyorConfig)) {
+                if ($line -match "^version: (?<Version>(\d+(\.\d+){1,3})).*") {
+                    $script:AppVeyorVersion = $matches.Version
+                    break
+                }
+            }
+            $script:AppVeyorVersion                | Should Not BeNullOrEmpty
+            $script:AppVeyorVersion -as [Version]  | Should Not BeNullOrEmpty
+            Write-Verbose $script:AppVeyorVersion
+        }
+
+        $script:ChangeLogVersion = $null
+        It "has a valid version in the change log" {
+            foreach ($line in (Get-Content $ChangeLog)) {
+                if ($line -match "^## (?<Version>(\d+\.){1,3}\d+) \(\d{4}-\d{2}-\d{2}\)") {
+                    $script:ChangeLogVersion = $matches.Version
+                    break
+                }
+            }
+            $script:ChangeLogVersion                | Should Not BeNullOrEmpty
+            $script:ChangeLogVersion -as [Version]  | Should Not BeNullOrEmpty
+        }
+
         $script:ReleaseNotesVersion = $null
         It "has a valid version in the release notes" {
-            foreach ($line in (Get-Content $script:ReleaseNotesPath)) {
-                if ($line -match "^## (?<Version>(\d+\.){1,3}\d+) \(\d{4}-\d{2}-\d{2}\)") {
+            foreach ($line in (Get-Content $ReleaseNotes)) {
+                if ($line -match "(?<Version>(\d+\.){1,3}\d+)$") {
                     $script:ReleaseNotesVersion = $matches.Version
                     break
                 }
             }
             $script:ReleaseNotesVersion                | Should Not BeNullOrEmpty
             $script:ReleaseNotesVersion -as [Version]  | Should Not BeNullOrEmpty
+        }
+
+        It "appveyor config and manifest versions are the same" {
+            $script:AppVeyorVersion -as [Version] | Should be ( $script:Manifest.Version -as [Version] )
+        }
+
+        It "change log and manifest versions are the same" {
+            $script:ChangeLogVersion -as [Version] | Should be ( $script:Manifest.Version -as [Version] )
         }
 
         It "release notes and manifest versions are the same" {

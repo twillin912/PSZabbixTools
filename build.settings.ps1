@@ -7,27 +7,37 @@ Properties {
 
     # The root directories for the module's docs, src and test.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $BuildRootDir = "$env:BHProjectPath\build"
-
+    $DocsRootDir = "$env:BHProjectPath\Docs"
+    $SrcRootDir  = "$env:BHPSModulePath"
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $DocsRootDir = "$env:BHProjectPath\docs"
+    $TestRootDir = "$env:BHProjectPath\Test"
 
+    # The name of your module should match the basename of the PSD1 file.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $DocsCommandDir = "$DocsRootDir\Commands"
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $UpdatableHelpDir = "$env:BHProjectPath\helpinfo"
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $TestRootDir = "$env:BHProjectPath\tests"
+    $ModuleName = Get-Item $SrcRootDir\*.psd1 |
+                      Where-Object { $null -ne (Test-ModuleManifest -Path $_ -ErrorAction SilentlyContinue) } |
+                      Select-Object -First 1 | Foreach-Object BaseName
 
     # The $OutDir is where module files and updatable help files are staged for signing, install and publishing.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $ReleaseDir = "$env:BHProjectPath\Release"
+    $OutDir = "$env:BHProjectPath\Release"
+
+    # The local installation directory for the install task. Defaults to your home Modules location.
+    if ( $env:BHBuildSystem -eq 'Unknown' ) {
+    [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
+        $InstallPath = Join-Path (Split-Path $profile.CurrentUserAllHosts -Parent) `
+                             "Modules\$ModuleName\$((Test-ModuleManifest -Path $SrcRootDir\$ModuleName.psd1).Version.ToString())"
+    }
 
     # Default Locale used for help generation, defaults to en-US.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
     $DefaultLocale = 'en-US'
+
+    # Items in the $Exclude array will not be copied to the $OutDir e.g. $Exclude = @('.gitattributes')
+    # Typically you wouldn't put any file under the src dir unless the file was going to ship with
+    # the module. However, if there are such files, add their $SrcRootDir relative paths to the exclude list.
+    [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
+    $Exclude = @()
 
     # ------------------ Script analysis properties ---------------------------
 
@@ -46,7 +56,7 @@ Properties {
 
     # Path to the PSScriptAnalyzer settings file.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $ScriptAnalyzerSettingsPath = "$BuildRootDir\scriptanalyzer.settings.ps1"
+    $ScriptAnalyzerSettingsPath = "$env:BHProjectPath\ScriptAnalyzerSettings.psd1"
 
     # ------------------- Script signing properties ---------------------------
 
@@ -78,7 +88,7 @@ Properties {
 
     # Enable/disable generation of a catalog (.cat) file for the module.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $CatalogGenerationEnabled = $false
+    $CatalogGenerationEnabled = $true
 
     # Select the hash version to use for the catalog file: 1 for SHA1 (compat with Windows 7 and
     # Windows Server 2008 R2), 2 for SHA2 to support only newer Windows versions.
@@ -89,14 +99,13 @@ Properties {
 
     # Enable/disable Pester code coverage reporting.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $CodeCoverageEnabled = $false
+    $CodeCoverageEnabled = $true
 
     # CodeCoverageFiles specifies the files to perform code coverage analysis on. This property
     # acts as a direct input to the Pester -CodeCoverage parameter, so will support constructions
     # like the ones found here: https://github.com/pester/Pester/wiki/Code-Coverage.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $CodeCoverageFiles = "$env:BHPSModulePath\*.psm1", "$env:BHPSModulePath\*.ps1",
-        "$env:BHPSModulePath\Private\*.ps1", "$env:BHPSModulePath\Public\*.ps1"
+    $CodeCoverageFiles = Get-ChildItem -Path "$SrcRootDir" -Include *.ps1, *.psm1 -File -Recurse
 
     # -------------------- Publishing properties ------------------------------
 
@@ -113,7 +122,7 @@ Properties {
     # Path to the release notes file.  Set to $null if the release notes reside in the manifest file.
     # The contents of this file are used during publishing for the ReleaseNotes parameter.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $ReleaseNotesPath = "$PSScriptRoot\ReleaseNotes.md"
+    $ReleaseNotesPath = "$env:BHProjectPath\ReleaseNotes.md"
 
     # ----------------------- Misc properties ---------------------------------
 
@@ -127,13 +136,24 @@ Properties {
     # This is typically used to write out test results so that they can be sent to a CI
     # system like AppVeyor.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $TestOutputFile = "$env:BHProjectPath\TestResults.xml"
+    $TestOutputFile = "$env:BHProjectPath\PesterResults.xml"
 
     # Specifies the test output format to use when the TestOutputFile property is given
     # a path.  This parameter is passed through to Invoke-Pester's -OutputFormat parameter.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
     $TestOutputFormat = "NUnitXml"
+}
 
+###############################################################################
+# Customize these tasks for performing operations before and/or after file staging.
+###############################################################################
+
+# Executes before the StageFiles task.
+Task BeforeStageFiles {
+}
+
+# Executes after the StageFiles task.
+Task AfterStageFiles {
 }
 
 ###############################################################################
@@ -158,6 +178,50 @@ Task BeforeBuildHelp {
 
 # Executes after the BuildHelp task.
 Task AfterBuildHelp {
+}
+
+###############################################################################
+# Customize these tasks for performing operations before and/or after BuildUpdatableHelp.
+###############################################################################
+
+# Executes before the BuildUpdatableHelp task.
+Task BeforeBuildUpdatableHelp {
+}
+
+# Executes after the BuildUpdatableHelp task.
+Task AfterBuildUpdatableHelp {
+}
+
+###############################################################################
+# Customize these tasks for performing operations before and/or after GenerateFileCatalog.
+###############################################################################
+
+# Executes before the GenerateFileCatalog task.
+Task BeforeGenerateFileCatalog {
+}
+
+# Executes after the GenerateFileCatalog task.
+Task AfterGenerateFileCatalog {
+}
+
+###############################################################################
+# Customize these tasks for performing operations before and/or after Test.
+###############################################################################
+
+# Executes before the Install task.
+Task BeforeTest {
+}
+
+# Executes after the Install task.
+Task AfterTest {
+    if ( $env:BHBuildSystem -eq 'AppVeyor') {
+        [xml]$content = Get-Content -Path $TestOutputFile
+        $content.'test-results'.'test-suite'.type = "Powershell"
+        $content.Save($TestOutputFile)
+        (New-Object 'System.Net.WebClient').UploadFile(
+            "https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)",
+            "$TestOutputFile" )
+    }
 }
 
 ###############################################################################
