@@ -2,9 +2,9 @@
 $SuppressImportModule = $true
 . $PSScriptRoot\Shared.ps1
 
-$AppVeyorConfig = Join-Path -Path $env:BHProjectPath -Child "appveyor.yml"
-$ChangeLog = Join-Path -Path $env:BHProjectPath -Child "CHANGELOG.md"
-$ReleaseNotes = Join-Path -Path $env:BHProjectPath -Child "ReleaseNotes.md"
+$AppVeyorPath = Join-Path -Path $ProjectRoot -Child "appveyor.yml"
+$ChangeLogPath = Join-Path -Path $ProjectRoot -Child "CHANGELOG.md"
+$ReleaseNotesPath = Join-Path -Path $ProjectRoot -Child "ReleaseNotes.md"
 
 Describe 'Module manifest' {
     Context 'Validation' {
@@ -13,7 +13,7 @@ Describe 'Module manifest' {
 
         It "has a valid manifest" {
             {
-                $script:Manifest = Test-ModuleManifest -Path $env:BHPSModuleManifest -ErrorAction Stop -WarningAction SilentlyContinue
+                $script:Manifest = Test-ModuleManifest -Path "$($SrcRootDir)\$($ModuleName).psd1" -ErrorAction Stop -WarningAction SilentlyContinue
             } | Should Not Throw
         }
 
@@ -58,7 +58,7 @@ Describe 'Module manifest' {
 
         $script:AppVeyorVersion = $null
         It "has a valid version in the appveyor config" {
-            foreach ($line in (Get-Content $AppVeyorConfig)) {
+            foreach ($line in (Get-Content $AppVeyorPath)) {
                 if ($line -match "^version: (?<Version>(\d+(\.\d+){1,3})).*") {
                     $script:AppVeyorVersion = $matches.Version
                     break
@@ -71,8 +71,8 @@ Describe 'Module manifest' {
 
         $script:ChangeLogVersion = $null
         It "has a valid version in the change log" {
-            foreach ($line in (Get-Content $ChangeLog)) {
-                if ($line -match "^## (?<Version>(\d+\.){1,3}\d+) \(\d{4}-\d{2}-\d{2}\)") {
+            foreach ($line in (Get-Content $ChangeLogPath)) {
+                if ($line -match "^## (?<Version>(\d+\.){1,3}\d+)") {
                     $script:ChangeLogVersion = $matches.Version
                     break
                 }
@@ -83,7 +83,7 @@ Describe 'Module manifest' {
 
         $script:ReleaseNotesVersion = $null
         It "has a valid version in the release notes" {
-            foreach ($line in (Get-Content $ReleaseNotes)) {
+            foreach ($line in (Get-Content $ReleaseNotesPath)) {
                 if ($line -match "(?<Version>(\d+\.){1,3}\d+)$") {
                     $script:ReleaseNotesVersion = $matches.Version
                     break
@@ -108,3 +108,5 @@ Describe 'Module manifest' {
     }
 
 }
+
+

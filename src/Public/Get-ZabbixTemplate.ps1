@@ -1,4 +1,4 @@
-function Get-ZabbixHost {
+function Get-ZabbixTemplate {
     <#
     .SYNOPSIS
         Gets the hosts from a Zabbix server.
@@ -10,31 +10,26 @@ function Get-ZabbixHost {
         Specifies one or more hosts by host id. You can type multiple host ids (separated by commas).
     .PARAMETER GroupId
         Specifies one or more hosts by group id. You can type multiple group ids (separated by commas).
-    .PARAMETER TemplateId
-        Specifies one or more hosts by template id. You can type multiple template ids (separated by commas).
     .PARAMETER Name
         Specifies one or more hosts by host name.  You can use wildcard characters.
     .PARAMETER Short
         Indicates that only the HostId value it returned.  This can be useful when piping the output to another command.
     .EXAMPLE
-        Get-ZabbixHost
-        Get all hosts on the server.
+        Get-ZabbixTemplate
+        Get all templates on the server.
     .EXAMPLE
-        Get-ZabbixHost -HostName 'Server01'
-        In this example we are searching for any hosts where the 'host' field match the search input.
+        Get-ZabbixTemplate -TemplateId 10000,10001
+        Get data for templates with id 10000 or 10001
     .EXAMPLE
-        Get-ZabbixHost -HostId 10000,10001,10002
-        Retrieve host(s) by Id
+        Get-ZabbixTemplate -Name 'Template01'
+        Get template data where the template name matches the input value.
     .EXAMPLE
-        Get-ZabbixHostGroup -Name MyGroup | Get-ZabbixHost
-        Get all hosts the belong to the host group 'MyGroup'
-    .EXAMPLE
-        Get-ZabbixTemplate -Name Template01 | Get-ZabbixHost
-        Get all hosts the have the template 'Template01' applied
+        Get-ZabbixHostGroup -Name MyGroup | Get-ZabbixTemplate
+        Get template data for all templates in the group 'Group01'
     .OUTPUTS
-        Custom.Zabbix.Host
+        Custom.Zabbix.Template
     .LINK
-        https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHost
+        https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate
     .NOTES
         Author: Trent Willingham
         Check out my other scripts and projects @ https://github.com/twillin912
@@ -44,13 +39,10 @@ function Get-ZabbixHost {
 
     Param(
         [Parameter(ValueFromPipelineByPropertyName=$true)]
-        [int[]] $HostId,
+        [int[]] $TemplateId,
 
         [Parameter(ValueFromPipelineByPropertyName=$true)]
         [int[]] $GroupId,
-
-        [Parameter(ValueFromPipelineByPropertyName=$true)]
-        [int[]] $TemplateId,
 
         [Parameter()]
         [string] $Name,
@@ -74,16 +66,12 @@ function Get-ZabbixHost {
         $Search=@{}
 
         # Construct the Params and Search variables
-        if ( $HostId ) {
-            $Params.Add('hostids', $HostId)
+        if ( $TemplateId ) {
+            $Params.Add('templateids', $HostId)
         }
 
         if ( $GroupId ) {
             $Params.Add('groupids', $GroupId)
-        }
-
-        if ( $TemplateId ) {
-            $Params.Add('templateids', $TemplateId)
         }
 
         if ( $Name ) {
@@ -102,8 +90,8 @@ function Get-ZabbixHost {
             $Params.Add('selectGroups', 'extend')
         }
 
-        $JsonRequest = ZabbixJsonObject -RequestType 'host.get' -Parameters $Params
-        Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Sending JSON request object`n$($JsonRequest -Replace $env:ZabbixAuth, 'XXXXXX')"
+        $JsonRequest = ZabbixJsonObject -RequestType 'template.get' -Parameters $Params
+        Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Sending JSON request object`n`t$($JsonRequest -Replace $env:ZabbixAuth, 'XXXXXX')"
 
         try {
             $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
@@ -123,13 +111,13 @@ function Get-ZabbixHost {
             if ( -not $Short ) {
                 foreach ( $Object in $OutputObject ) {
                     Add-Member -InputObject $Object -MemberType NoteProperty -Name groupnames -Value $Object.Groups.Name
-                    $Object.PSObject.TypeNames.Insert(0, 'Custom.Zabbix.Host')
+                    $Object.PSObject.TypeNames.Insert(0, 'Custom.Zabbix.Template')
                 }
             }
             Write-Output -InputObject $OutputObject
         }
         else {
-            Write-Warning -Message "$($MyInvocation.MyCommand.Name): No host entries found matching the specified criteria."
+            Write-Warning -Message "$($MyInvocation.MyCommand.Name): No template entries found matching the specified criteria."
         }
 
     } # End

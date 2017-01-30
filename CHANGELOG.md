@@ -1,5 +1,9 @@
 # PoshZabbixTools Release History
 
+## 0.1.5 (2017-01-30)
+  - Bug Fixes
+    - Removed security catalog
+
 ## 0.1.4 (2017-01-26)
   - Improvements
     - Updates project structure to follow plaster structure

@@ -1,6 +1,6 @@
 ---
 external help file: PoshZabbixTools-help.xml
-online version: https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItem
+online version: https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem
 schema: 2.0.0
 ---
 
@@ -156,5 +156,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItem](https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItem)
+[https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem](https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem)
 
