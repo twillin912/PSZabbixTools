@@ -1,76 +1,35 @@
-# Notes:
-#   - Minimal appveyor.yml file is an empty file. All sections are optional.
-#   - Indent each level of configuration with 2 spaces. Do not use tabs!
-#   - All section names are case-sensitive.
-#   - Section names should be unique on each level.
-
-#---------------------------------#
-#      general configuration      #
-#---------------------------------#
-
 # version format
-version: 0.1.4.{build}
+version: 0.1.5.{build}
 
-#---------------------------------#
-#    environment configuration    #
-#---------------------------------#
+# branches to build
+branches:
+  only:
+    - master
+    - develop
+
+# Allow WMF5 (i.e. PowerShellGallery functionality)
+image: WMF 5
 
 #Publish to PowerShell Gallery with this key
 environment:
   NuGetApiKey:
     secure: 8fzPA9jCuntNmDKjf/RWRvEQuqqsuMNJ7ywZ2hIWnbrETAWc9JtW3PnhEhnRXaIU
 
-# Allow WMF5 (i.e. PowerShellGallery functionality)
-image: WMF 5
-
-# scripts that are called at very beginning, before repo cloning
-# init:
-#   - ps:
-
-# install:
-#  - ps:
-
-#---------------------------------#
-#       build configuration       #
-#---------------------------------#
-
-build: off
-
-#---------------------------------#
-#       tests configuration       #
-#---------------------------------#
+build: false
 
 test_script:
   - ps: .\build.ps1 Publish
 
-#---------------------------------#
-#     deployment configuration    #
-#---------------------------------#
+deploy:
+- provider: GitHub
+  release: $(APPVEYOR_REPO_TAG_NAME)
+  description: "GitHub Release"
+  auth_token:
+    secure: 3GTTXmNgNrCZkv0w/qp8+Be5+f/ApC3bqm5eqSnFcMmb2Muu7KMInEQDJPiU6pj8
+  artifact: /.*\.zip/
+  draft: false
+  prerelease: false
+  on:
+    branch: master
+    appveyor_repo_tag: true
 
-# scripts to run before deployment
-deploy: off
-
-#---------------------------------#
-#        global handlers          #
-#---------------------------------#
-
-# on successful build
-on_success:
-
-# on build failure
-on_failure:
-
-# after build failure or success
-on_finish:
-  - ps: |
-      # Publish the contents of the Release folder
-      Add-Type -AssemblyName System.IO.Compression.FileSystem
-      $ZipFile = "$pwd\PoshZabbixTools.zip"
-      [System.IO.Compression.ZipFile]::CreateFromDirectory("$pwd\Release", $ZipFile)
-      Push-AppveyorArtifact $ZipFile
-
-#---------------------------------#
-#         notifications           #
-#---------------------------------#
-
-# notifications:

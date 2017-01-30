@@ -34,7 +34,7 @@ function Get-ZabbixItem {
     .OUTPUTS
         Custom.Zabbix.Item
     .LINK
-        https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixItem
+        https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem
     .NOTES
         Author: Trent Willingham
         Check out my other scripts and projects @ https://github.com/twillin912

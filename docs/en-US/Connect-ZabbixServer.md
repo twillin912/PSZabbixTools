@@ -1,6 +1,6 @@
 ---
 external help file: PoshZabbixTools-help.xml
-online version: https://poshzabbixtools.readthedocs.io/en/latest/Commands/Connect-ZabbixServer
+online version: http://poshzabbixtools.readthedocs.io/en/latest/en-US/Connect-ZabbixServer/
 schema: 2.0.0
 ---
 
@@ -126,5 +126,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://poshzabbixtools.readthedocs.io/en/latest/Commands/Connect-ZabbixServer](https://poshzabbixtools.readthedocs.io/en/latest/Commands/Connect-ZabbixServer)
+[http://poshzabbixtools.readthedocs.io/en/latest/en-US/Connect-ZabbixServer/](http://poshzabbixtools.readthedocs.io/en/latest/en-US/Connect-ZabbixServer/)
 

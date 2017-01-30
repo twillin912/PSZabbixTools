@@ -27,7 +27,7 @@ function Connect-ZabbixServer {
         Author: Trent Willingham
         Check out my other scripts and projects @ https://github.com/twillin912
     .LINK
-        https://poshzabbixtools.readthedocs.io/en/latest/Commands/Connect-ZabbixServer
+        http://poshzabbixtools.readthedocs.io/en/latest/en-US/Connect-ZabbixServer/
     #>
     [CmdletBinding()]
 

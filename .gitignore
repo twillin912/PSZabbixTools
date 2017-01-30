@@ -7,9 +7,6 @@
 # Folder config file
 Desktop.ini
 
-# Release output dir.
+# Release and Temp output dir.
 [Rr]elease/
-
-# Automation Logs
-[Rr]obocopy.log
-TestsResults.xml
+[Tt]emp/

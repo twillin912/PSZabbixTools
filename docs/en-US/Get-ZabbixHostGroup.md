@@ -1,6 +1,6 @@
 ---
 external help file: PoshZabbixTools-help.xml
-online version: https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHostGroup
+online version: https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHostGroup
 schema: 2.0.0
 ---
 
@@ -95,5 +95,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHostGroup](https://poshzabbixtools.readthedocs.io/en/latest/Commands/Get-ZabbixHostGroup)
+[https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHostGroup](https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHostGroup)
 
