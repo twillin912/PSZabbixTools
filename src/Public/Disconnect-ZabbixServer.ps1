@@ -33,8 +33,8 @@ function Disconnect-ZabbixServer {
 
     try {
         $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
-        Remove-Item -Name env:ZabbixAuth -ErrorAction SilentlyContinue
-        Remove-Item -Name env:ZabbixUri -ErrorAction SilentlyContinue
+        Remove-Item -Path env:ZabbixAuth -ErrorAction SilentlyContinue
+        Remove-Item -Path env:ZabbixUri -ErrorAction SilentlyContinue
         Write-Verbose -Message "$JsonResponse"
     }
     catch {
