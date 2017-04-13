@@ -48,7 +48,9 @@ function Get-ZabbixTemplate {
         [string] $Name,
 
         [Parameter()]
-        [switch] $Short
+        [switch] $Short,
+
+        $Certificate = $Global:Certificate
     )
 
     Begin {
@@ -94,7 +96,7 @@ function Get-ZabbixTemplate {
         Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Sending JSON request object`n`t$($JsonRequest -Replace $env:ZabbixAuth, 'XXXXXX')"
 
         try {
-            $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
+            $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -Certificate $Certificate -ErrorAction Stop
             Write-Verbose -Message "$JsonResponse"
         }
         catch {

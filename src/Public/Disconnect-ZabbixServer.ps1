@@ -18,8 +18,7 @@ function Disconnect-ZabbixServer {
     #>
     [CmdletBinding()]
 
-    Param(
-    )
+    Param( $Certificate = $Global:Certificate )
 
     if (!($env:ZabbixUri)) {
         Write-Warning -Message "$($MyInvocation.MyCommand.Name): No active sessions found."
@@ -32,7 +31,7 @@ function Disconnect-ZabbixServer {
     Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Sending JSON request object`n$($JsonRequest -Replace $env:ZabbixAuth, 'XXXXXX')"
 
     try {
-        $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
+        $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -Certificate $Certificate -ErrorAction Stop
         Remove-Item -Path env:ZabbixAuth -ErrorAction SilentlyContinue
         Remove-Item -Path env:ZabbixUri -ErrorAction SilentlyContinue
         Write-Verbose -Message "$JsonResponse"

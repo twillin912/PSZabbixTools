@@ -56,7 +56,9 @@ function Get-ZabbixItem {
         [string] $Key,
 
         [Parameter()]
-        [switch] $Short
+        [switch] $Short,
+
+        $Certificate = $Global:Certificate
     )
 
     Begin {
@@ -105,7 +107,7 @@ function Get-ZabbixItem {
         Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Sending JSON request object`n`t$($JsonRequest -Replace $env:ZabbixAuth, 'XXXXXX')"
 
         try {
-            $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
+            $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -Certificate $Certificate -ErrorAction Stop
         }
         catch {
             Write-Error "StatusCode: $($_.Exception.Response.StatusCode.value__)"

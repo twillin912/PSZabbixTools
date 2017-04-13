@@ -46,7 +46,9 @@ function Connect-ZabbixServer {
         [Parameter(Mandatory=$True)]
         [System.Management.Automation.PSCredential]
         [System.Management.Automation.Credential()]
-        $Credential
+        $Credential,
+
+        $Certificate = $Global:Certificate
     )
     [System.Net.ServicePointManager]::SecurityProtocol = @("Tls12","Tls11")
 
@@ -73,7 +75,7 @@ function Connect-ZabbixServer {
 
     try {
         Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Submitting login request to $Uri"
-        $JsonResponse = Invoke-RestMethod -Uri $Uri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
+        $JsonResponse = Invoke-RestMethod -Uri $Uri -Method Put -Body $JsonRequest -ContentType 'application/json' -Certificate $Certificate -ErrorAction Stop
     }
     catch {
         Write-Error "StatusCode: $($_.Exception.Response.StatusCode.value__)"
