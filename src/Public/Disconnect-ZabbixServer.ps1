@@ -20,7 +20,7 @@ function Disconnect-ZabbixServer {
 
     Param( $Certificate = $Global:Certificate )
 
-    if (!($env:ZabbixUri)) {
+    if (!($env:ZabbixAuth)) {
         Write-Warning -Message "$($MyInvocation.MyCommand.Name): No active sessions found."
         break
     }

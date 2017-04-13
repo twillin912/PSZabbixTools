@@ -62,7 +62,7 @@ function Get-ZabbixItem {
     )
 
     Begin {
-        if (!($env:ZabbixUri)) {
+        if (!($env:ZabbixAuth)) {
             Write-Warning -Message "$($MyInvocation.MyCommand.Name): No session information found. Use 'Connect-ZabbixServer' to login and create your Api session."
             break;
         }

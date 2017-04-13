@@ -52,7 +52,7 @@ function Connect-ZabbixServer {
     )
     [System.Net.ServicePointManager]::SecurityProtocol = @("Tls12","Tls11")
 
-    if ($env:ZabbixUri) {
+    if ($env:ZabbixAuth) {
         Write-Warning -Message "$($MyInvocation.MyCommand.Name): Zabbix session information already exists. Disconnect any previous session before starting a new session."
         break
     }
