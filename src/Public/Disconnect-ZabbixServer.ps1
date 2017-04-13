@@ -36,6 +36,12 @@ function Disconnect-ZabbixServer {
         Remove-Item -Path env:ZabbixAuth -ErrorAction SilentlyContinue
         Remove-Item -Path env:ZabbixUri -ErrorAction SilentlyContinue
         Write-Verbose -Message "$JsonResponse"
+        if ($JsonResponse.result = $true) {
+            Write-Verbose -Message 'logout succesfull'
+            }
+            else {
+                Write-Warning -Message 'logout not succesfull'
+                }
     }
     catch {
         Write-Error "StatusCode: $($_.Exception.Response.StatusCode.value__)"
