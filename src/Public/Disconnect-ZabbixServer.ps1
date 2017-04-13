@@ -22,7 +22,7 @@ function Disconnect-ZabbixServer {
     )
 
     if (!($env:ZabbixUri)) {
-        Write-Warning -Message '$($MyInvocation.MyCommand.Name): No action sessions found.'
+        Write-Warning -Message "$($MyInvocation.MyCommand.Name): No active sessions found."
         break
     }
 
