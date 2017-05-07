@@ -48,11 +48,13 @@ function Get-ZabbixTemplate {
         [string] $Name,
 
         [Parameter()]
-        [switch] $Short
+        [switch] $Short,
+
+        $Certificate = $Global:Certificate
     )
 
     Begin {
-        if (!($env:ZabbixUri)) {
+        if (!($env:ZabbixAuth)) {
             Write-Warning -Message "$($MyInvocation.MyCommand.Name): No session information found. Use 'Connect-ZabbixServer' to login and create your Api session."
             break;
         }
@@ -94,7 +96,7 @@ function Get-ZabbixTemplate {
         Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Sending JSON request object`n`t$($JsonRequest -Replace $env:ZabbixAuth, 'XXXXXX')"
 
         try {
-            $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
+            $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -Certificate $Certificate -ErrorAction Stop
             Write-Verbose -Message "$JsonResponse"
         }
         catch {

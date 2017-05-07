@@ -46,11 +46,13 @@ function Get-ZabbixItemHistory {
         [int] $ValueType,
 
         [Parameter()]
-        [int] $Last = 1
+        [int] $Last = 1,
+
+        $Certificate = $Global:Certificate
     )
 
     Begin {
-        if (!($env:ZabbixUri)) {
+        if (!($env:ZabbixAuth)) {
             Write-Warning -Message "$($MyInvocation.MyCommand.Name): No session information found. Use 'Connect-ZabbixServer' to login and create your Api session."
             break;
         }
@@ -79,7 +81,7 @@ function Get-ZabbixItemHistory {
         Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Sending JSON request object`n`t$($JsonRequest -Replace $env:ZabbixAuth, 'XXXXXX')"
 
         try {
-            $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
+            $JsonResponse = Invoke-RestMethod -Uri $env:ZabbixUri -Method Put -Body $JsonRequest -ContentType 'application/json' -Certificate $Certificate -ErrorAction Stop
         }
         catch {
             Write-Error "StatusCode: $($_.Exception.Response.StatusCode.value__)"

@@ -46,10 +46,13 @@ function Connect-ZabbixServer {
         [Parameter(Mandatory=$True)]
         [System.Management.Automation.PSCredential]
         [System.Management.Automation.Credential()]
-        $Credential
-    )
+        $Credential,
 
-    if ($env:ZabbixUri) {
+        $Certificate = $Global:Certificate
+    )
+    [System.Net.ServicePointManager]::SecurityProtocol = @("Tls12","Tls11")
+
+    if ($env:ZabbixAuth) {
         Write-Warning -Message "$($MyInvocation.MyCommand.Name): Zabbix session information already exists. Disconnect any previous session before starting a new session."
         break
     }
@@ -72,7 +75,7 @@ function Connect-ZabbixServer {
 
     try {
         Write-Verbose -Message "$($MyInvocation.MyCommand.Name): Submitting login request to $Uri"
-        $JsonResponse = Invoke-RestMethod -Uri $Uri -Method Put -Body $JsonRequest -ContentType 'application/json' -ErrorAction Stop
+        $JsonResponse = Invoke-RestMethod -Uri $Uri -Method Put -Body $JsonRequest -ContentType 'application/json' -Certificate $Certificate -ErrorAction Stop
     }
     catch {
         Write-Error "StatusCode: $($_.Exception.Response.StatusCode.value__)"
