@@ -1,19 +1,19 @@
 function Get-ZabbixTemplate {
     <#
     .SYNOPSIS
-        Gets the hosts from a Zabbix server.
+        Gets the templates from a Zabbix server.
     .DESCRIPTION
-        The Get-ZabbixHost cmdlet gets the hosts from a Zabbix server.
+        The Get-ZabbixTemplate cmdlet gets the templates from a Zabbix server.
 
-        Without parameters, this cmdlet gets all hosts on the server.  You can also specify a particular host by host id, group id, or host name.
-    .PARAMETER HostId
-        Specifies one or more hosts by host id. You can type multiple host ids (separated by commas).
+        Without parameters, this cmdlet gets all templates on the server.  You can also specify a particular template by template id, group id, or template name.
+    .PARAMETER TemplateId
+        Specifies one or more templates by template id. You can type multiple template ids (separated by commas).
     .PARAMETER GroupId
-        Specifies one or more hosts by group id. You can type multiple group ids (separated by commas).
+        Specifies one or more templates by group id. You can type multiple group ids (separated by commas).
     .PARAMETER Name
-        Specifies one or more hosts by host name.  You can use wildcard characters.
+        Specifies one or more templates by template name.  You can use wildcard characters.
     .PARAMETER Short
-        Indicates that only the HostId value it returned.  This can be useful when piping the output to another command.
+        Indicates that only the TemplateId value it returned.  This can be useful when piping the output to another command.
     .EXAMPLE
         Get-ZabbixTemplate
         Get all templates on the server.
