@@ -64,7 +64,7 @@ Add-BuildTask PSAnalyzer Init, {
 
 
 # SYNOPSIS:
-Add-BuildTask Build, Clean, {
+Add-BuildTask Build Clean, {
     $Functions = Get-ChildItem -Path "$env:BHPSModulePath/Public" -Filter *.ps1 -Recurse
     $Formats = Get-ChildItem -Path "$env:BHPSModulePath/Formats" -Filter *.Format.ps1xml -Recurse
 
