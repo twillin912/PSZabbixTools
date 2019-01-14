@@ -1,5 +1,8 @@
 # ZabbixTools Release History
 
+## v0.7 (2019-01-14)
+  - Renamed project
+
 ## v0.6 (2017-01-30)
   - Bug Fixes
     - Removed security catalog
