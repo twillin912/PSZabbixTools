@@ -1,6 +1,6 @@
 # ZabbixTools PowerShell Module
 
-[![Build status](https://ci.appveyor.com/api/projects/status/github/twillin912/pszabbixtools?branch=stable&passingText=stable%20-%20OK&svg=true)](https://ci.appveyor.com/project/twillin912/pszabbixtools/branch/stable)
+[![Build status](https://ci.appveyor.com/api/projects/status/tnf2vfwybyrkgdj6?svg=true)](https://ci.appveyor.com/project/twillin912/pszabbixtools)
 [![Documentation Status](http://readthedocs.org/projects/pszabbixtools/badge/?version=latest)](http://pszabbixtools.readthedocs.io/en/latest/?badge=latest)
 
 Zabbix tools.
