@@ -212,8 +212,8 @@ Add-BuildTask ConfirmTests {
 
 # SYNOPSIS: Publish Module using PSDeploy
 Add-BuildTask Publish {
-    $NewBuild = New-Object -TypeName Version -ArgumentList $ModuleVersion.Major, $ModuleVersion.Minor, ($ModuleVersion.Build + 1)
-    Update-ModuleManifest -Path "$env:BHPSModuleManifest" -ModuleVersion $NewBuild
+    # $NewBuild = New-Object -TypeName Version -ArgumentList $ModuleVersion.Major, $ModuleVersion.Minor, ($ModuleVersion.Build + 1)
+    # Update-ModuleManifest -Path "$env:BHPSModuleManifest" -ModuleVersion $NewBuild
 
     $PublishParams = @{
         Path    = "$env:BHProjectPath/build"
