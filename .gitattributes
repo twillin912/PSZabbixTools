@@ -1,0 +1,9 @@
+* text=auto
+* text eol=crlf
+* text eol=crlf
+
+# Ignore all documentation with “export-ignore”.
+.editorconfig export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+.vscode/* export-ignore

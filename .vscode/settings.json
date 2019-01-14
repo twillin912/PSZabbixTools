@@ -1,0 +1,17 @@
+{
+    // Configure glob patterns for excluding files and folders.
+    "files.exclude": {
+        "**/desktop.ini": true,
+        "artifacts/": true,
+        "release/": true,
+        "temp/": true
+    },
+
+
+    //-------- PowerShell Configuration --------
+
+    // Use a custom PowerShell Script Analyzer settings file for this workspace.
+    // Relative paths for this setting are always relative to the workspace root dir.
+    "powershell.scriptAnalysis.settingsPath": "build/scriptanalyzer.settings.psd1",
+    "files.defaultLanguage": "powershell"
+}
