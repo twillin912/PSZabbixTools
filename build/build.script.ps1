@@ -37,7 +37,7 @@ Add-BuildTask Clean Init, {
 Add-BuildTask Analyze PSParser, PSAnalyzer
 
 # SYNOPSIS: Lint code with PSScriptAnalyzer
-Add-BuildTask PSParser {
+Add-BuildTask PSParser Init, {
     Get-ChildItem -Path $env:BHPSModulePath -Filter '*.ps1' -Exclude '*.Format.ps1xml' -Recurse | ForEach-Object {
         $Errors = $null
         $FileContent = Get-Content -Path $_.FullName -ErrorAction Stop
@@ -51,7 +51,7 @@ Add-BuildTask PSParser {
 }
 
 # SYNOPSIS: Lint code with PSScriptAnalyzer
-Add-BuildTask PSAnalyzer {
+Add-BuildTask PSAnalyzer Init, {
     $AnalyzeResults = Invoke-ScriptAnalyzer -Path $env:BHPSModulePath -Recurse -Settings "$BuildPath\scriptanalyzer.settings.psd1"
     $AnalyzeResults | ConvertTo-Json | Set-Content (Join-Path $ArtifactPath 'ScriptAnalysisResults.json')
 
@@ -64,7 +64,7 @@ Add-BuildTask PSAnalyzer {
 
 
 # SYNOPSIS:
-Add-BuildTask Build {
+Add-BuildTask Build, Clean, {
     $Functions = Get-ChildItem -Path "$env:BHPSModulePath/Public" -Filter *.ps1 -Recurse
     $Formats = Get-ChildItem -Path "$env:BHPSModulePath/Formats" -Filter *.Format.ps1xml -Recurse
 
@@ -108,10 +108,10 @@ Add-BuildTask Build {
 
 
 # SYNOPSIS: Build help files with PlatyPS
-Add-BuildTask BuildHelp MarkdownHelp, ExternalHelp
+Add-BuildTask BuildHelp Build, MarkdownHelp, ExternalHelp
 
 # SYNOPSIS: Create markdown help from module
-Add-BuildTask MarkdownHelp {
+Add-BuildTask MarkdownHelp Init, {
     $ModuleInfo = Import-Module $env:BHPSModuleManifest -Global -Force -PassThru
 
     try {
@@ -146,7 +146,7 @@ Add-BuildTask MarkdownHelp {
 }
 
 # SYNOPSIS:
-Add-BuildTask ExternalHelp {
+Add-BuildTask ExternalHelp Init, {
     if (!(Get-ChildItem -LiteralPath $DocsPath -Filter *.md -Recurse -ErrorAction SilentlyContinue)) {
         Write-Warning -Message ('No markdown help files to process. Skipping "{0}" task.' -f $Task.Name)
         return
@@ -163,7 +163,7 @@ Add-BuildTask ExternalHelp {
 
 
 # SYNOPSIS: Run/Publish Tests and Fail Build on Error
-Add-BuildTask Test RunTest, ConfirmTests
+Add-BuildTask Test Init, RunTest, ConfirmTests
 
 # SYNOPSIS: Run unit testing with Pester
 Add-BuildTask RunTest {
@@ -211,7 +211,7 @@ Add-BuildTask ConfirmTests {
 }
 
 # SYNOPSIS: Publish Module using PSDeploy
-Add-BuildTask Publish Build, BuildHelp, Test, {
+Add-BuildTask Publish Init, Build, BuildHelp, Test, {
     # $NewBuild = New-Object -TypeName Version -ArgumentList $ModuleVersion.Major, $ModuleVersion.Minor, ($ModuleVersion.Build + 1)
     # Update-ModuleManifest -Path "$env:BHPSModuleManifest" -ModuleVersion $NewBuild
 
