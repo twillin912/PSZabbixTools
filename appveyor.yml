@@ -1,0 +1,15 @@
+# version format
+version: 0.0.0.{build}
+
+# Allow WMF5 (i.e. PowerShellGallery functionality)
+image: WMF 5
+
+#Publish to PowerShell Gallery with this key
+environment:
+  NuGetApiKey:
+    secure: 8fzPA9jCuntNmDKjf/RWRvEQuqqsuMNJ7ywZ2hIWnbrETAWc9JtW3PnhEhnRXaIU
+
+build: false
+
+test_script:
+  - ps: .\build.ps1 Publish
