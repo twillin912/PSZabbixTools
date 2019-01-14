@@ -33,7 +33,7 @@ The Connect-ZabbixServer cmdlet retreives the Api authentication key for the ses
 Connect-ZabbixServer -Server 'myserver' -Credential 'myuser'
 ```
 
-Connect to the Zabbix server 'myserver' with the username 'myuser'.
+Connect to the Zabbix server 'myserver' with the username 'myuser'. 
 The connection URI will be 'http://myserver/zabbix/api_jsonrpc.php'.
 
 ### EXAMPLE 2
@@ -65,7 +65,7 @@ Accept wildcard characters: False
 ```
 
 ### -Server
-Specifies the name of the Zabbix server to utilize in contrusting the connection URI.
+Specifies the name of the Zabbix server to utilize in contrusting the connection URI. 
 If not using the default Zabbix configuration, please specify the full URI using the -Uri paramter.
 
 ```yaml

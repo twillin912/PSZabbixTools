@@ -19,7 +19,7 @@ Get-ZabbixItemHistory [[-ItemId] <Int32[]>] [[-ValueType] <Int32>] [[-Last] <Int
 ## DESCRIPTION
 The Get-ZabbixItemHistory cmdlet gets the item history from a Zabbix server.
 
-Without parameters, this cmdlet gets all items on the server.
+Without parameters, this cmdlet gets all items on the server. 
 You can also specify a particular item\[s\] by item id, host id, item name, or item key.
 
 ## EXAMPLES
@@ -93,7 +93,7 @@ Accept wildcard characters: False
 ```
 
 ### -Last
-Indicates the number of values to return for each item.
+Indicates the number of values to return for each item. 
 By default only the most recent value is returned.
 
 ```yaml

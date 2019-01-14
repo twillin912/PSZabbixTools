@@ -20,7 +20,7 @@ Get-ZabbixHost [[-Identity] <Int32[]>] [[-Name] <String>] [[-GroupId] <Int32[]>]
 ## DESCRIPTION
 The Get-ZabbixHost cmdlet gets the hosts from a Zabbix server.
 
-Without parameters, this cmdlet gets all hosts on the server.
+Without parameters, this cmdlet gets all hosts on the server. 
 You can also specify a particular host by host id, group id, or host name.
 
 ## EXAMPLES
@@ -79,7 +79,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-Specifies one or more hosts by host name.
+Specifies one or more hosts by host name. 
 You can use wildcard characters.
 
 ```yaml
@@ -127,7 +127,7 @@ Accept wildcard characters: False
 ```
 
 ### -Short
-Indicates that only the Identity value it returned.
+Indicates that only the Identity value it returned. 
 This can be useful when piping the output to another command.
 
 ```yaml

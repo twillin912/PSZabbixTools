@@ -19,7 +19,7 @@ Set-ZabbixHostGroup [[-Identity] <Int32>] [[-Name] <String>] [-WhatIf] [-Confirm
 ## DESCRIPTION
 The Get-ZabbixHostGroup cmdlet gets the host groups from a Zabbix server.
 
-Without parameters, this cmdlet gets all host groups on the server.
+Without parameters, this cmdlet gets all host groups on the server. 
 You can also specify a particular group by group id or group name.
 
 ## EXAMPLES
@@ -50,7 +50,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-Specifies one or more groups by group name.
+Specifies one or more groups by group name. 
 You can use wildcard characters.
 
 ```yaml
