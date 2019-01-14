@@ -1,7 +1,7 @@
 ---
 external help file: ZabbixTools-help.xml
 Module Name: ZabbixTools
-online version: https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate
+online version: https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate
 schema: 2.0.0
 ---
 
@@ -20,7 +20,7 @@ Get-ZabbixTemplate [[-TemplateId] <Int32[]>] [[-GroupId] <Int32[]>] [[-Name] <St
 ## DESCRIPTION
 The Get-ZabbixTemplate cmdlet gets the templates from a Zabbix server.
 
-Without parameters, this cmdlet gets all templates on the server. 
+Without parameters, this cmdlet gets all templates on the server.
 You can also specify a particular template by template id, group id, or template name.
 
 ## EXAMPLES
@@ -88,7 +88,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-Specifies one or more templates by template name. 
+Specifies one or more templates by template name.
 You can use wildcard characters.
 
 ```yaml
@@ -104,7 +104,7 @@ Accept wildcard characters: False
 ```
 
 ### -Short
-Indicates that only the TemplateId value it returned. 
+Indicates that only the TemplateId value it returned.
 This can be useful when piping the output to another command.
 
 ```yaml
@@ -133,5 +133,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate](https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate)
+[https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate](https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate)
 

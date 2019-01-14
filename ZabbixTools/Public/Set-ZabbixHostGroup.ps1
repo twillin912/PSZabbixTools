@@ -16,7 +16,7 @@ function Set-ZabbixHostGroup {
     .OUTPUTS
         None
     .LINK
-        https://poshzabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup
+        https://pszabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup
     .NOTES
         Author: Trent Willingham
         Check out my other scripts and projects @ https://github.com/twillin912

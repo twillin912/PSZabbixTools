@@ -1,7 +1,7 @@
 ---
 external help file: ZabbixTools-help.xml
 Module Name: ZabbixTools
-online version: https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem
+online version: https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem
 schema: 2.0.0
 ---
 
@@ -20,7 +20,7 @@ Get-ZabbixItem [[-ItemId] <Int32[]>] [[-HostId] <Int32[]>] [[-Name] <String>] [[
 ## DESCRIPTION
 The Get-ZabbixItem cmdlet gets the items from a Zabbix server.
 
-Without parameters, this cmdlet gets all items on the server. 
+Without parameters, this cmdlet gets all items on the server.
 You can also specify a particular item\[s\] by item id, host id, item name, or item key.
 
 ## EXAMPLES
@@ -95,7 +95,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-Specifies one or more items by item name. 
+Specifies one or more items by item name.
 You can use wildcard characters.
 
 ```yaml
@@ -111,7 +111,7 @@ Accept wildcard characters: False
 ```
 
 ### -Key
-Specifies one or more items by item key. 
+Specifies one or more items by item key.
 You can use wildcard characters.
 
 ```yaml
@@ -127,7 +127,7 @@ Accept wildcard characters: False
 ```
 
 ### -Short
-Indicates that only the ItemId and ValueType values are returned. 
+Indicates that only the ItemId and ValueType values are returned.
 This can be useful when piping the output to another command.
 
 ```yaml
@@ -156,5 +156,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem](https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem)
+[https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem](https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem)
 

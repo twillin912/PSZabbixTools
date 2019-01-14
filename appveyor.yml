@@ -4,6 +4,16 @@ version: 0.0.0.{build}
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 image: WMF 5
 
+branches:
+  only:
+  - master
+  - develop
+
+skip_commits:
+  files:
+    - mkdocs.yml
+    - '**/*.md'
+
 #Publish to PowerShell Gallery with this key
 environment:
   NuGetApiKey:

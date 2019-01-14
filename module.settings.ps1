@@ -5,9 +5,9 @@
 [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
 $Author         = 'Trent Willingham'
 [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-$Description    = 'Zabbix tools.'
+$Description    = 'PowerShell module for managing Zabbix servers use the REST API.'
 [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-$Tags           = @()
+$Tags           = @('PowerShell','Zabbix')
 
 [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
 $ProjectUri     = "https://github.com/twillin912/PS${env:BHProjectName}"

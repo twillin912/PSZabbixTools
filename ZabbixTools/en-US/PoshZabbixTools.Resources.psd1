@@ -1,4 +1,4 @@
-# Localized PoshZabbixTools.Resources.psd1
+# Localized PSZabbixTools.Resources.psd1
 
 ConvertFrom-StringData @'
     CIMFailed               = Cannot bind to CIM instance on '{0}'.

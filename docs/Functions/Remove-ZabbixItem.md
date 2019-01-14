@@ -1,7 +1,7 @@
 ---
 external help file: ZabbixTools-help.xml
 Module Name: ZabbixTools
-online version: https://poshzabbixtools.readthedocs.io/en/latest/en-US/New-ZabbixHostGroup
+online version: https://pszabbixtools.readthedocs.io/en/latest/en-US/New-ZabbixHostGroup
 schema: 2.0.0
 ---
 

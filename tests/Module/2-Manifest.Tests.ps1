@@ -2,9 +2,8 @@
 $SuppressImportModule = $true
 . $PSScriptRoot/../Shared.ps1
 
-$AppVeyorPath = Join-Path -Path $ProjectRoot -Child "appveyor.yml"
-$ChangeLogPath = Join-Path -Path $ProjectRoot -Child "CHANGELOG.md"
-$ReleaseNotesPath = Join-Path -Path $ProjectRoot -Child "RELEASENOTES.md"
+$ChangeLogPath = Join-Path -Path $env:BHProjectPath -Child "CHANGELOG.md"
+$ReleaseNotesPath = Join-Path -Path $env:BHProjectPath -Child "ReleaseNotes.md"
 
 Describe 'Module manifest' {
     Context 'Validation' {
@@ -56,25 +55,6 @@ Describe 'Module manifest' {
 
     Context 'Versioning' {
         $script:ManifestVersion = New-Object -TypeName Version -ArgumentList $script:Manifest.Version.Major, $script:Manifest.Version.Minor
-
-        if ( $UseAppVeyor ) {
-            $script:AppVeyorVersion = $null
-            It "has a valid version in the appveyor config" {
-                foreach ($line in (Get-Content $AppVeyorPath)) {
-                    if ($line -match "^version: (?<Version>(\d+(\.\d+){1,3})).*") {
-                        $script:AppVeyorVersion = $matches.Version
-                        break
-                    }
-                }
-                $script:AppVeyorVersion                | Should Not BeNullOrEmpty
-                $script:AppVeyorVersion -as [Version]  | Should Not BeNullOrEmpty
-                Write-Verbose $script:AppVeyorVersion
-            }
-
-            It "appveyor config and manifest versions are the same" {
-                $script:AppVeyorVersion -as [Version] | Should be ( $script:ManifestVersion -as [Version] )
-            }
-        }
 
         $script:ChangeLogVersion = $null
         It "has a valid version in the change log" {

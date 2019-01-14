@@ -14,7 +14,7 @@ function Disconnect-ZabbixServer {
         Author: Trent Willingham
         Check out my other scripts and projects @ https://github.com/twillin912
     .LINK
-        https://poshzabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer
+        https://pszabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer
     #>
     [CmdletBinding()]
 

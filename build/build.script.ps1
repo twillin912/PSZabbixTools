@@ -68,19 +68,33 @@ Add-BuildTask Build {
 
     $ManifestParams = @{}
     $ManifestParams.Add('ModuleVersion', $ModuleVersion)
-    if ($Functions) { $ManifestParams.Add('FunctionsToExport', $Functions.BaseName) }
+    if ($Functions) {
+        $ManifestParams.Add('FunctionsToExport', $Functions.BaseName)
+    }
     if ($Formats) {
         $ManifestParams.Add('FormatsToProcess',
             ($Formats | ForEach-Object {"Formats/$($_.Name)"})
         )
     }
 
-    if ($Author) { $ManifestParams.Add('Author', $Author) }
-    if ($Description) { $ManifestParams.Add('Description', $Description) }
-    if ($ProjectUri) { $ManifestParams.Add('ProjectUri', $ProjectUri) }
-    if ($LicenseUri) { $ManifestParams.Add('LicenseUri', $LicenseUri) }
-    if ($ReleaseNotes) { $ManifestParams.Add('ReleaseNotes', $ReleaseNotes) }
-    if ($Tags) { $ManifestParams.Add('Tags', $Tags) }
+    if ($Author) {
+        $ManifestParams.Add('Author', $Author)
+    }
+    if ($Description) {
+        $ManifestParams.Add('Description', $Description)
+    }
+    if ($ProjectUri) {
+        $ManifestParams.Add('ProjectUri', $ProjectUri)
+    }
+    if ($LicenseUri) {
+        $ManifestParams.Add('LicenseUri', $LicenseUri)
+    }
+    if ($ReleaseNotes) {
+        $ManifestParams.Add('ReleaseNotes', $ReleaseNotes)
+    }
+    if ($Tags) {
+        $ManifestParams.Add('Tags', $Tags)
+    }
 
     Update-ModuleManifest -Path "$env:BHPSModuleManifest" @ManifestParams
     $ManifestContent = Get-Content -Path "$env:BHPSModuleManifest"

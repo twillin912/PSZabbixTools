@@ -209,8 +209,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>http://poshzabbixtools.readthedocs.io/en/latest/en-US/Connect-ZabbixServer/</maml:linkText>
-        <maml:uri>http://poshzabbixtools.readthedocs.io/en/latest/en-US/Connect-ZabbixServer/</maml:uri>
+        <maml:linkText>http://pszabbixtools.readthedocs.io/en/latest/en-US/Connect-ZabbixServer/</maml:linkText>
+        <maml:uri>http://pszabbixtools.readthedocs.io/en/latest/en-US/Connect-ZabbixServer/</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -268,8 +268,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer</maml:linkText>
-        <maml:uri>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer</maml:uri>
+        <maml:linkText>https://pszabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer</maml:linkText>
+        <maml:uri>https://pszabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -384,7 +384,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer</maml:uri>
+        <maml:uri>https://pszabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -582,8 +582,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHost</maml:linkText>
-        <maml:uri>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHost</maml:uri>
+        <maml:linkText>https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHost</maml:linkText>
+        <maml:uri>https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHost</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -705,8 +705,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHostGroup</maml:linkText>
-        <maml:uri>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHostGroup</maml:uri>
+        <maml:linkText>https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHostGroup</maml:linkText>
+        <maml:uri>https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixHostGroup</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -904,8 +904,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem</maml:linkText>
-        <maml:uri>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem</maml:uri>
+        <maml:linkText>https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem</maml:linkText>
+        <maml:uri>https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItem</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1056,8 +1056,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItemHistory</maml:linkText>
-        <maml:uri>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItemHistory</maml:uri>
+        <maml:linkText>https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItemHistory</maml:linkText>
+        <maml:uri>https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixItemHistory</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1224,8 +1224,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate</maml:linkText>
-        <maml:uri>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate</maml:uri>
+        <maml:linkText>https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate</maml:linkText>
+        <maml:uri>https://pszabbixtools.readthedocs.io/en/latest/en-US/Get-ZabbixTemplate</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1345,8 +1345,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://poshzabbixtools.readthedocs.io/en/latest/en-US/New-ZabbixHostGroup</maml:linkText>
-        <maml:uri>https://poshzabbixtools.readthedocs.io/en/latest/en-US/New-ZabbixHostGroup</maml:uri>
+        <maml:linkText>https://pszabbixtools.readthedocs.io/en/latest/en-US/New-ZabbixHostGroup</maml:linkText>
+        <maml:uri>https://pszabbixtools.readthedocs.io/en/latest/en-US/New-ZabbixHostGroup</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1476,7 +1476,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://poshzabbixtools.readthedocs.io/en/latest/en-US/New-ZabbixHostGroup</maml:uri>
+        <maml:uri>https://pszabbixtools.readthedocs.io/en/latest/en-US/New-ZabbixHostGroup</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1621,8 +1621,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup</maml:linkText>
-        <maml:uri>https://poshzabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup</maml:uri>
+        <maml:linkText>https://pszabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup</maml:linkText>
+        <maml:uri>https://pszabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

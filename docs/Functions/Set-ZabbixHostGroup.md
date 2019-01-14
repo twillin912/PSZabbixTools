@@ -1,7 +1,7 @@
 ---
 external help file: ZabbixTools-help.xml
 Module Name: ZabbixTools
-online version: https://poshzabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup
+online version: https://pszabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup
 schema: 2.0.0
 ---
 
@@ -19,7 +19,7 @@ Set-ZabbixHostGroup [[-Identity] <Int32>] [[-Name] <String>] [-WhatIf] [-Confirm
 ## DESCRIPTION
 The Get-ZabbixHostGroup cmdlet gets the host groups from a Zabbix server.
 
-Without parameters, this cmdlet gets all host groups on the server. 
+Without parameters, this cmdlet gets all host groups on the server.
 You can also specify a particular group by group id or group name.
 
 ## EXAMPLES
@@ -50,7 +50,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-Specifies one or more groups by group name. 
+Specifies one or more groups by group name.
 You can use wildcard characters.
 
 ```yaml
@@ -110,5 +110,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://poshzabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup](https://poshzabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup)
+[https://pszabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup](https://pszabbixtools.readthedocs.io/en/latest/en-US/Set-ZabbixHostGroup)
 

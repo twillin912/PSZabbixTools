@@ -1,7 +1,7 @@
 ---
 external help file: ZabbixTools-help.xml
 Module Name: ZabbixTools
-online version: https://poshzabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer
+online version: https://pszabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer
 schema: 2.0.0
 ---
 
@@ -43,5 +43,5 @@ Check out my other scripts and projects @ https://github.com/twillin912
 
 ## RELATED LINKS
 
-[https://poshzabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer](https://poshzabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer)
+[https://pszabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer](https://pszabbixtools.readthedocs.io/en/latest/en-US/Disconnect-ZabbixServer)
 
