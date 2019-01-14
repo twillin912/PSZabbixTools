@@ -12,6 +12,8 @@ Set-StrictMode -Version Latest
 Add-BuildTask . Init, Clean, Build, BuildHelp, Analyze, Test
 
 Add-BuildTask Init {
+    $FileVersion = (Test-ModuleManifest -Path "$env:BHPSModuleManifest").Version
+    $ModuleVersion = New-Object -TypeName Version -ArgumentList $FileVersion.Major, $FileVersion.Minor, $FileVersion.Build, ($FileVersion.Revision + 1)
     $env:BHBuildNumber = $ModuleVersion.Revision
     $env:BHModuleVersion = $ModuleVersion.ToString()
 
@@ -67,7 +69,7 @@ Add-BuildTask Build {
     $Formats = Get-ChildItem -Path "$env:BHPSModulePath/Formats" -Filter *.Format.ps1xml -Recurse
 
     $ManifestParams = @{}
-    $ManifestParams.Add('ModuleVersion', $ModuleVersion)
+    $ManifestParams.Add('ModuleVersion', $env:BHModuleVersion)
     if ($Functions) {
         $ManifestParams.Add('FunctionsToExport', $Functions.BaseName)
     }
@@ -127,7 +129,7 @@ Add-BuildTask MarkdownHelp {
             Locale         = 'en-US'
             OutputFolder   = "$DocsPath/Functions"
             WithModulePage = $false
-            HelpVersion    = $ModuleVersion
+            HelpVersion    = $env:BHModuleVersion
         }
 
         PlatyPS\New-MarkdownHelp @HelpParams -Force -Verbose:$VerbosePreference | Out-Null

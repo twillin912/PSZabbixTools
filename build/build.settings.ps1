@@ -25,10 +25,6 @@ $PesterResultsFile = Join-Path -Path $ArtifactPath -ChildPath 'PesterResults.xml
 [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
 $UseAppVeyor = $false
 
-$Version = (Test-ModuleManifest -Path "$env:BHPSModuleManifest").Version
-[System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-$ModuleVersion = New-Object -TypeName Version -ArgumentList $Version.Major, $Version.Minor, $Version.Build
-
 ###############################################################################
 # Before/After Hooks for the Core Task: Clean
 ###############################################################################

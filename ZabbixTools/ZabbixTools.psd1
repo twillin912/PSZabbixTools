@@ -12,7 +12,7 @@
 RootModule = 'ZabbixTools.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.7git pus.0'
+ModuleVersion = '0.7.1.92'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -30,7 +30,7 @@ CompanyName = 'Unknown'
 Copyright = '(c) 2018 Trent Willingham. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'Zabbix tools.'
+Description = 'PowerShell module for managing Zabbix servers use the REST API.'
 
 # Minimum version of the Windows PowerShell engine required by this module
 # PowerShellVersion = ''
@@ -98,7 +98,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = 'PowerShell','Zabbix'
 
         # A URL to the license for this module.
         LicenseUri = 'https://github.com/twillin912/PSZabbixTools/blob/stable/LICENSE'
